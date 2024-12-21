@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Translator</title>
+    <style>
+        /* This section styles the body of the page */
+body {
+    /* Set the font to Arial, with sans-serif as a fallback */
+    font-family: 'Arial', sans-serif;
+
+    /* Set the background color to a light gray */
+    background-color: #f1f1f1;
+
+    /* Remove default margins to avoid unwanted space around the edges */
+    margin: 0;
+
+    /* Remove default padding to ensure there's no extra space inside the body */
+    padding: 0;
+}
+    /* ===========================
+   Main Container Styling
+   =========================== */
+
+/* This container holds the main content of the page */
+.container {
+    /* Set the width to 80% of the parent element */
+    width: 80%;
+    
+    /* Center the container horizontally with auto margins and add 40px top and bottom margin */
+    margin: 40px auto;
+    
+    /* Set background color to white for a clean appearance */
+    background-color: #fff;
+    
+    /* Add 20px of padding inside the container to give space around the content */
+    padding: 20px;
+    
+    /* Round the corners of the container with a 10px radius for a modern look */
+    border-radius: 10px;
+    
+    /* Add a subtle box-shadow around the container for depth and separation from the background */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ===========================
+   Heading (h1) Styling
+   =========================== */
+
+/* Style for the main header, typically used for the page title */
+h1 {
+    /* Align the text to the center for better presentation */
+    text-align: center;
+    
+    /* Set text color to a dark gray (#333) for better readability */
+    color: #333;
+}
+
+
+/* ===========================
+   Form Elements Styling
+   =========================== */
+
+/* This applies to all select dropdowns, buttons, and textareas */
+select, button, textarea {
+    /* Set the width of form elements to 100% of their parent container */
+    width: 100%;
+    
+    /* Add 12px padding to make the elements easier to click/type */
+    padding: 12px;
+    
+    /* Add a 10px vertical margin and 0 horizontal margin for spacing between form elements */
+    margin: 10px 0;
+    
+    /* Set font size to 16px for better readability */
+    font-size: 16px;
+    
+    /* Set a light gray border color to distinguish the form elements */
+    border: 1px solid #ccc;
+    
+    /* Round the corners with a 5px radius for smoother edges */
+    border-radius: 5px;
+}
+/* ===========================
+   Button Styling
+   =========================== */
+
+/* Default button style: set background to a light blue, text color to white, and a pointer cursor */
+button {
+    background-color: #4c84af; /* Primary blue color for the button */
+    color: white;              /* White text for contrast */
+    cursor: pointer;          /* Change cursor to pointer to indicate it's clickable */
+}
+
+/* Button hover effect: Darken the button background when hovered over */
+button:hover {
+    background-color: #3b75af; /* Darker shade of blue on hover for visual feedback */
+}
+
+
+/* ===========================
+   Speech Button Styling
+   =========================== */
+
+/* Speech button has a unique color to stand out (light cyan) */
+.speech-btn {
+    background-color: #00c3ff; /* Bright cyan color for the speech button */
+}
+
+/* Speech button hover effect: Change background color on hover to a darker cyan */
+.speech-btn:hover {
+    background-color: #00a7f5; /* Slightly darker cyan on hover for feedback */
+}
+
+
+/* ===========================
+   Output Box Styling
+   =========================== */
+
+/* Output box: Light gray background, padding, and border to contain results */
+.output {
+    background-color: #f9f9f9;    /* Very light gray background for the output box */
+    padding: 10px;                /* Add 10px padding inside the output box for spacing */
+    border-radius: 5px;           /* Round the corners with a 5px radius */
+    margin-top: 20px;             /* Add space above the output box */
+    border: 1px solid #ddd;      /* Light gray border around the output box */
+    min-height: 50px;             /* Ensure the output box has a minimum height */
+}
+      </style>
+</head>
+<body>
+<div class="container">
+    <h1>Real-Time Translator</h1>
+
+    <div>
+        <label for="sourceLanguage">From Language: </label>
+        <select id="sourceLanguage"></select>
+    </div>
+
+    <div>
+        <label for="targetLanguage">To Language: </label>
+        <select id="targetLanguage"></select>
+    </div>
+
+    <div>
+        <textarea id="inputText" rows="4" placeholder="Enter text to translate..."></textarea>
+    </div>
+
+    <div>
+        <button onclick="translateText()">Translate Text</button>
+        <button class="speech-btn" onclick="startVoiceRecognition()">Speak and Translate</button>
+    </div>
+
+    <div class="output" id="translatedText">Translated text will appear here...</div>
+</div>
+<script src="translator.js"></script>
+
+</body>
+</html>

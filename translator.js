@@ -1,6 +1,6 @@
-const translateApiKey = "AIzaSyAf0ws-Zl97acG5zk_WqF2njYJ_J6ssTMQ";//Replace with your translate API
+const translateApiKey = "AIzaSyAf0ws-Zl97acG5zk_WqF2njYJ_J6ssTMQ";
 
-// List of available languages (can be expanded as needed)
+
 const languageList = [
           { "code": "en", "name": "English", "symbol": "🇬🇧" },
           { "code": "es", "name": "Spanish", "symbol": "🇪🇸" },
@@ -51,7 +51,6 @@ const languageList = [
     
           ];
 
-// Populate the language selectors dynamically
 function populateLanguageSelectors() {
     const sourceLangSelect = document.getElementById('sourceLanguage');
     const targetLangSelect = document.getElementById('targetLanguage');
@@ -68,12 +67,12 @@ function populateLanguageSelectors() {
         targetLangSelect.appendChild(targetOption);
     });
 
-    // Set default language selections (e.g., English to Spanish)
+    
     sourceLangSelect.value = 'en';
     targetLangSelect.value = 'es';
 }
 
-// Function to translate text using Google Translate API
+
 function translateText() {
     const text = document.getElementById("inputText").value.trim();
     const sourceLang = document.getElementById("sourceLanguage").value;
@@ -106,7 +105,6 @@ function translateText() {
     });
 }
 
-// Voice recognition using Web Speech API
 let recognition;
 
 function startVoiceRecognition() {
@@ -117,7 +115,7 @@ function startVoiceRecognition() {
 
     const sourceLang = document.getElementById("sourceLanguage").value;
     recognition = new webkitSpeechRecognition();
-    recognition.lang = sourceLang; // Set the language for recognition
+    recognition.lang = sourceLang; 
     recognition.continuous = false;
     recognition.interimResults = false;
 
@@ -133,7 +131,7 @@ function startVoiceRecognition() {
     recognition.onresult = (event) => {
         const spokenText = event.results[0][0].transcript;
         document.getElementById("inputText").value = spokenText;
-        translateText(); // Automatically translate the spoken text
+        translateText(); 
     };
 
     recognition.onend = () => {
@@ -143,5 +141,4 @@ function startVoiceRecognition() {
     recognition.start();
 }
 
-// Initialize language selectors
 populateLanguageSelectors();
